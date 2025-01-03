@@ -141,3 +141,5 @@ dist
 # Code interpreter data
 /examples/tmp/code_interpreter/*
 /examples/tmp/local/*
+
+venv/*

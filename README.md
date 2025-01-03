@@ -115,3 +115,75 @@ Special thanks to our contributors for helping us improve Bee Agent Framework.
 <a href="https://github.com/i-am-bee/bee-stack/graphs/contributors">
   <img alt="Contributors list" src="https://contrib.rocks/image?repo=i-am-bee/bee-stack" />
 </a>
+
+
+## Chloe's Notes
+```bash
+./bee-stack.sh start
+>>>> Executing external compose provider "/usr/local/bin/docker-compose". Please see podman-compose(1) for how to disable this message. <<<<
+
+bee-stack is not yet configured, do you want to configure it now? (Y/n): Y
+🐝 Welcome to the bee-stack! You're just a few questions away from building agents!
+(Press ^C to exit)
+
+Choose LLM provider:
+[1]: watsonx
+[2]: ollama
+[3]: bam
+[4]: openai
+Select [1-4]: 1
+Provide WATSONX_PROJECT_ID:  ****
+Provide WATSONX_API_KEY: ****
+Provide WATSONX_REGION (leave empty for default 'us-south'): 
+Do you want to start bee-stack now? (Y/n): Y
+>>>> Executing external compose provider "/usr/local/bin/docker-compose". Please see podman-compose(1) for how to disable this message. <<<<
+
+[+] Running 45/3
+ ✔ bee-ui Pulled                                                           7.5s 
+ ✔ bee-usercontent-site Pulled                                             8.7s 
+ ✔ bee-api Pulled                                                         34.0s 
+[+] Running 12/12
+ ✔ Container bee-stack-bee-usercontent-site-1      Sta...                                             20.7s 
+ ✔ Container bee-stack-collector-1                 Started                                            20.6s 
+ ✔ Container bee-stack-bee-code-interpreter-k3s-1  Started                                            20.8s 
+ ✔ Container bee-stack-milvus-1                    Started                                            21.1s 
+ ✔ Container bee-stack-bee-api-1                   Healthy                                            35.5s 
+ ✔ Container bee-stack-bee-observe-1               Started                                            21.0s 
+ ✔ Container bee-stack-etcd-1                      Started                                            19.1s 
+ ✔ Container bee-stack-mlflow-1                    Started                                            10.7s 
+ ✔ Container bee-stack-mongo-1                     Healthy                                            14.7s 
+ ✔ Container bee-stack-minio-1                     Started                                            10.7s 
+ ✔ Container bee-stack-redis-1                     Started                                            10.6s 
+ ✔ Container bee-stack-bee-ui-1                    Started                                            24.1s 
+Done. You can visit the UI at http://localhost:3000
+>>>> Executing external compose provider "/usr/local/bin/docker-compose". Please see podman-compose(1) for how to disable this message. <<<<
+
+[+] Running 12/12
+ ✔ Container bee-stack-bee-code-interpreter-k3s-1  Started                                            20.8s 
+ ✔ Container bee-stack-collector-1                 Started                                            20.6s 
+ ✔ Container bee-stack-bee-usercontent-site-1      Sta...                                             20.8s 
+ ✔ Container bee-stack-milvus-1                    Started                                            21.2s 
+ ✔ Container bee-stack-bee-api-1                   Healthy                                            37.1s 
+ ✔ Container bee-stack-bee-observe-1               Started                                            21.0s 
+ ✔ Container bee-stack-etcd-1                      Started                                            20.5s 
+ ✔ Container bee-stack-mlflow-1                    Started                                            10.6s 
+ ✔ Container bee-stack-minio-1                     Started                                            10.8s 
+ ✔ Container bee-stack-mongo-1                     Healthy                                            15.3s 
+ ✔ Container bee-stack-redis-1                     Started                                            10.5s 
+ ✔ Container bee-stack-bee-ui-1                    Started                                            26.6s 
+Done. You can visit the UI at http://localhost:3000
+```
+
+Note that a .env file is generated after the setup input, the setup command is 
+```bash
+LLM_BACKEND=watsonx
+EMBEDDING_BACKEND=watsonx
+WATSONX_PROJECT_ID=****
+WATSONX_API_KEY=****
+WATSONX_REGION=us-south
+```
+
+To run the streamlit application for paper summarization
+```bash
+streamlit run generated_source_code/paper-summary-no-llm-decorator.py
+```
